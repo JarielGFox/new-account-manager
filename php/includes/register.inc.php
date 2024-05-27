@@ -1,6 +1,13 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Credentials: true");
+
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 require_once('../classes/dbh.classes.php');
 require_once('../classes/register.classes.php');
@@ -29,4 +36,7 @@ if (!empty($jsonData)) {
     //Registrazione completata
     echo json_encode(['success' => 'New user successfully registered']);
     http_response_code(201);  // 201 Created
+} else {
+    echo json_encode(['error' => 'Invalid input']);
+    http_response_code(400);  // 400 Bad Request
 }
