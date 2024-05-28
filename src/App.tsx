@@ -6,6 +6,7 @@ import Home from './views/Home';
 import Main from "./views/Main";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import EditInfo from "./views/EditInfo";
 
 interface AppProps {
     isLoggedIn: boolean;
@@ -26,6 +27,7 @@ const App: React.FC<AppProps> = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/main" element={<Main user={''} />} />
+            <Route path="/editBio" element={<EditInfo  />} />
           </Routes>
         </div>
       </header>
