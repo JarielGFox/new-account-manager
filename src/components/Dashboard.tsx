@@ -3,6 +3,7 @@ import { useUser } from '../context/UserContext';
 
 const Dashboard: React.FC = () => {
     const { username } = useUser();
+    console.log("Username utente:", { username });
 
     return (
         <>

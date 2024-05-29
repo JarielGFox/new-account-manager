@@ -59,7 +59,6 @@ const Navbar: React.FC<NavbarProps> = ({
         try {
             const response = await fetch('http://localhost:8000/php/includes/checkLoginStatus.inc.php', {
                 method: 'GET',
-                credentials: 'include',
             });
 
             const data = await response.json();
@@ -82,7 +81,8 @@ const Navbar: React.FC<NavbarProps> = ({
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                credentials: 'include'
             });
 
             const data = await response.json();
