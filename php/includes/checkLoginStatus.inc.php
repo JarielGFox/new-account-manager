@@ -7,8 +7,6 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 
 require_once('../classes/dbh.classes.php');
 
-//capire perchè non fa logout del tutto, verificare il passaggio delle props in react, vai in App.js
-
 $response = [];
 
 if (isset($_SESSION['id'])) {

@@ -89,34 +89,37 @@ const Register: React.FC = () => {
                     onChange={handleChange}
                     value={formData.email}
                 />
-                    <label htmlFor="password" className="form-label">Password</label>
-                <div className="d-flex">
-                    <input type={showPassword ? "text" : "password"}
-                        name="password"
-                        id="password"
-                        placeholder="Password"
-                        className="form-control"
-                        onChange={handleChange}
-                        value={formData.password}
-                        
-                    />
-                    <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword}></i>
+
+                //spazio per l'occhietto mostra psw
+                <div>
+                    <label htmlFor="password" className="form-label me-2">Password</label>
+                    <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword} role="button" title="Mostra password"></i>
                 </div>
 
-                <label htmlFor="password_confirmation" className="form-label">Confirm password</label>
-                <div className="d-flex">
-                    <input type={showPassword ? "text" : "password"}
-                        name="password_confirmation"
-                        id="password_confirmation"
-                        placeholder="Confirm Password"
-                        className="form-control"
-                        onChange={handleChange}
-                        value={formData.password_confirmation}
-                    />
-                    <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword}></i>
+                <input type={showPassword ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={formData.password}    
+                />
+
+                //spazio per l'occhietto mostra psw
+                <div>
+                    <label htmlFor="password_confirmation" className="form-label me-2">Confirm password</label>
+                    <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword} role="button" title="Mostra password"></i>
                 </div>
 
-
+                <input type={showPassword ? "text" : "password"}
+                    name="password_confirmation"
+                    id="password_confirmation"
+                    placeholder="Confirm Password"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={formData.password_confirmation}
+                />
+                    
                 <button className="btn btn-primary" type="submit">Register</button>
             </form>
         </div>
