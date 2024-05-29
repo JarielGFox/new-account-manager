@@ -13,6 +13,9 @@ const Register: React.FC = () => {
     //Stato per il messaggio di errore dal componente ShowMessage
     const [messageFromServer, setMessageFromServer] = useState<string>('');
 
+    //Stato per mostrare o meno la psw:
+    const [showPassword, setShowPassword] = useState(false);
+
     //Stato dati da compilare utente
     const [formData, setFormData] = useState<FormData>({
         username: '',
@@ -32,6 +35,10 @@ const Register: React.FC = () => {
             [name]: value
         }))
     };
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -82,26 +89,32 @@ const Register: React.FC = () => {
                     onChange={handleChange}
                     value={formData.email}
                 />
-
-                <label htmlFor="password" className="form-label">Password</label>
-                <input type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Password"
-                    className="form-control"
-                    onChange={handleChange}
-                    value={formData.password}
-                />
+                    <label htmlFor="password" className="form-label">Password</label>
+                <div className="d-flex">
+                    <input type={showPassword ? "text" : "password"}
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        className="form-control"
+                        onChange={handleChange}
+                        value={formData.password}
+                        
+                    />
+                    <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword}></i>
+                </div>
 
                 <label htmlFor="password_confirmation" className="form-label">Confirm password</label>
-                <input type="password"
-                    name="password_confirmation"
-                    id="password_confirmation"
-                    placeholder="Confirm Password"
-                    className="form-control"
-                    onChange={handleChange}
-                    value={formData.password_confirmation}
-                />
+                <div className="d-flex">
+                    <input type={showPassword ? "text" : "password"}
+                        name="password_confirmation"
+                        id="password_confirmation"
+                        placeholder="Confirm Password"
+                        className="form-control"
+                        onChange={handleChange}
+                        value={formData.password_confirmation}
+                    />
+                    <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword}></i>
+                </div>
 
 
                 <button className="btn btn-primary" type="submit">Register</button>

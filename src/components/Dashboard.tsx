@@ -1,15 +1,14 @@
-interface DashboardProps {
-    user: string
-}
+import React from 'react';
+import { useUser } from '../context/UserContext';
 
-const Dashboard: React.FC<DashboardProps> = ({user}) => {
-
+const Dashboard: React.FC = () => {
+    const { username } = useUser();
 
     return (
         <>
-            <h1>Benvenuto {user}</h1>
+            Benvenuto <span className="text-danger">{username}</span>!
         </>
-    )
-}
+    );
+};
 
 export default Dashboard;

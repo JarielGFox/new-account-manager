@@ -1,14 +1,11 @@
+import React from "react";
 import Dashboard from "../components/Dashboard";
 
-interface MainProps {
-    user: string
-}
-
-const Main: React.FC<MainProps> = ({user}) => {
+const Main: React.FC = () => {
 
      return (
         <div className="dashboard">
-            <Dashboard user={user} />
+            <Dashboard  />
         </div>
     );
 }

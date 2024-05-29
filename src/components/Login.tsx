@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ShowMessage from "../components/ShowMessage";
+import { useUser } from "../context/UserContext";
 
 interface LoginProps {
     isLoggedIn: boolean;
     setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-    // setForceUpdateKey: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Login: React.FC<LoginProps> = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -28,6 +28,9 @@ const Login: React.FC<LoginProps> = ({ isLoggedIn, setIsLoggedIn }) => {
     //redirect automatico con Navigate
     const navigate = useNavigate();
 
+    // manteniamo lo username inserito dall'utente nel contesto
+    const {setUsername} = useUser();
+
     // funzione per il login del form, conserviamo col prev lo stato delle informazioni inserite
     const handleChange = (event: any) => {
        const {name, value} = event.target;
@@ -48,7 +51,7 @@ const Login: React.FC<LoginProps> = ({ isLoggedIn, setIsLoggedIn }) => {
                 },
                 credentials: 'include',
                 body: JSON.stringify(formLogin)
-            })
+            });
 
             const data = await response.json();
             if (!response.ok) {
@@ -57,6 +60,7 @@ const Login: React.FC<LoginProps> = ({ isLoggedIn, setIsLoggedIn }) => {
 
             setMessageFromServer(JSON.stringify(data));
             setIsLoggedIn(true);
+            setUsername(formLogin.username);
             navigate('/main');  // Navigate to the Main.js view
         } catch (error: any) {
             console.error('There was a problem with the login:', error.message);
