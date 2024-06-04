@@ -90,7 +90,7 @@ const Register: React.FC = () => {
                     value={formData.email}
                 />
 
-                //spazio per l'occhietto mostra psw
+                {/* //spazio per l'occhietto mostra psw */}
                 <div>
                     <label htmlFor="password" className="form-label me-2">Password</label>
                     <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword} role="button" title="Mostra password"></i>
@@ -105,7 +105,7 @@ const Register: React.FC = () => {
                     value={formData.password}    
                 />
 
-                //spazio per l'occhietto mostra psw
+                {/* //spazio per l'occhietto mostra psw */}
                 <div>
                     <label htmlFor="password_confirmation" className="form-label me-2">Confirm password</label>
                     <i className={showPassword ? "bi bi-eye" : "bi bi-eye-slash"} onClick={handleShowPassword} role="button" title="Mostra password"></i>
