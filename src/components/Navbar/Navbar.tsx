@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 >
                     <ul>
                         <li>
-                            <Link to="#">Sezione 1</Link>
+                            <Link to="/dashboard">Dashboard</Link>
                         </li>
 
                         <li>

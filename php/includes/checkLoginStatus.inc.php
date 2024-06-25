@@ -9,8 +9,9 @@ require_once('../classes/dbh.classes.php');
 
 $response = [];
 
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['username'])) {
     $response['status'] = 'loggedIn';
+    $response['username'] = $_SESSION['username'];
 } else {
     $response['status'] = 'notLoggedIn';
 }

@@ -3,10 +3,12 @@ import { useUser } from '../context/UserContext';
 
 const Dashboard: React.FC = () => {
     const { username } = useUser();
-    
+
+    //per dopo, se funziona tutto, reindirizzare l'utente al login se non autenticato
+
     return (
         <>
-            Benvenuto <span className="text-danger">{username}</span>!
+            <span className="text-danger">{username ? "Benvenuto " + username + "!" : "Accedi a stocazzo!"}</span>
         </>
     );
 };

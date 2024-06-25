@@ -7,6 +7,7 @@ import Main from "./views/Main";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import EditInfo from "./views/EditInfo";
+import Dashboard from "./components/Dashboard";
 import { UserProvider } from './context/UserContext';
 
 interface AppProps {
@@ -30,6 +31,7 @@ const App: React.FC<AppProps> = () => {
               <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
               <Route path="/main" element={<Main  />} />
               <Route path="/editBio" element={<EditInfo  />} />
+              <Route path="/dashboard" element={<Dashboard  />} />
             </Routes>
           </div>
         </header>
